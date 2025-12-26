@@ -1,0 +1,21 @@
+[package]
+name = "stem-jotter-pro-main"
+version = "0.1.0"
+description = "Vite React static app"
+license = "MIT"
+
+[fs]
+"/public" = "dist"
+
+[[command]]
+name = "web"
+module = "wasmer/wasix-http-server"
+runner = "wasi"
+args = [
+  "--root",
+  "/public",
+  "--port",
+  "8080",
+  "--fallback",
+  "index.html"
+]
